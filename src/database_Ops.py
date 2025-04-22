@@ -14,8 +14,8 @@ class DatabaseOperations:
             self.connection = pymysql.connect(
                 host= "localhost",
                 user= "root",
-                password= "itfm_1234",
-                database= "university"        
+                password= "your database password",
+                database= "your database name"        
             )
             self.cursor = self.connection.cursor()
         except Exception as e:
