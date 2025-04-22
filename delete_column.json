@@ -1,0 +1,7 @@
+
+  [
+    {
+      "operation": "remove_column",
+      "column_name": "full_name"
+    }
+  ]

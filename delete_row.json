@@ -1,0 +1,12 @@
+
+  [
+    {
+      "operation": "delete_row",
+      "table_name": "student",
+      "pk_column": "student_id",
+      "primary_key_value": 5
+        
+        
+      
+    }
+  ]

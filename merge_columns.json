@@ -1,0 +1,8 @@
+
+  [
+    {
+      "operation": "merge_columns", 
+      "source_columns": ["first_name", "last_name"],
+      "new_column": "full_name"
+    }
+  ]
