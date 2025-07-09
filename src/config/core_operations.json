@@ -1,0 +1,12 @@
+{   
+    "core_operations":[
+    "merge_columns",
+    "add_column",
+    "rename_column",
+    "remove_column",
+    "conditional_update", 
+    "insert_row",
+    "delete_row",
+    "update_row"
+    ]
+}

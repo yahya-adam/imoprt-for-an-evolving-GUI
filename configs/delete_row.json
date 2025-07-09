@@ -1,0 +1,12 @@
+
+  [
+    {
+      "operation": "delete_row",
+      "table_name": "drilling_data_elbakh_3",
+      "pk_column": "id",
+      "primary_key_value": 2361
+        
+        
+      
+    }
+  ]

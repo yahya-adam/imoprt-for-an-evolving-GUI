@@ -1,8 +1,8 @@
 
-from transformManagerDatabase import DATABASE
+from core.transformation import DATABASE
 from jsonschema import validate, ValidationError
 import json
-
+import config
 def lowercase_column(table_name, column_name):
     """Convert a column's values to lowercase."""
     # Example SQL: UPDATE `table` SET `column` = LOWER(`column`)
@@ -15,7 +15,7 @@ def uppercase_column(table_name, column_name):
     query = f"UPDATE `{table_name}` SET `{column_name}` = UPPER(`{column_name}`)"
     return DATABASE._execute_sql(query)
 
-def insert_batch(table_name, values_list):
+def insert_batch(table_name, config):
     """Insert multiple rows into a table."""
     # Define the JSON schema for validation
     schema = {
@@ -25,12 +25,16 @@ def insert_batch(table_name, values_list):
             "table_name": {"type": "string"},
             "values_list": {"type": "array"}
         },
-        "required": ["operation", "values_list"]
+        "required": ["values_list"]
     }
     try:
         # Validate the JSON against the schema
-        validate(instance=values_list, schema=schema)  # Assuming values_list is the JSON config
+        # Validate the CONFIG against the schema, not values_list
+        validate(instance=config, schema=schema)
         
+        # Extract the values list from config
+        values_list = config["values_list"]
+
         for row in values_list:
             DATABASE.dynamic_insert(table_name, row)
         return True
